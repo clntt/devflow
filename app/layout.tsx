@@ -7,11 +7,12 @@ import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import {
   ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
+  // SignedIn,
+  // SignedOut,
+  // SignInButton,
+  // UserButton,
 } from "@clerk/nextjs";
+import { ThemeProvider } from "@/context/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,29 +49,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      appearance={{
-        elements: {
-          formButtonPrimary: "primary-gradient",
-          footerActionLink: "primary-text-gradient hover:text-primary-500",
-        },
-      }}
-    >
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
+      >
+        <ClerkProvider
+          appearance={{
+            elements: {
+              formButtonPrimary: "primary-gradient",
+              footerActionLink: "primary-text-gradient hover:text-primary-500",
+            },
+          }}
         >
-          <SignedOut>
+          {/* <SignedOut>
             <SignInButton />
           </SignedOut>
 
           <SignedIn>
             <UserButton />
-          </SignedIn>
+          </SignedIn> */}
 
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
