@@ -41,7 +41,8 @@ export const formatBigNumber = (num: string | number): string => {
   const value = typeof num === "string" ? parseFloat(num) : num;
 
   if (isNaN(value)) {
-    throw new Error("Invalid number");
+    // throw new Error("Invalid number");
+    console.log("Invalid number");
   }
 
   if (value < 0) {

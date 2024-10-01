@@ -7,65 +7,12 @@ import NoResult from "@/components/shared/NoResult";
 import Link from "next/link";
 import React from "react";
 import QuestionCard from "@/components/cards/QuestionCard";
+import { getQuestions } from "@/lib/actions/question.action";
 
-const questions = [
-  {
-    _id: "1",
-    title: "How to create a new project in React?",
-    tags: [
-      { _id: "1", name: "React" },
-      { _id: "2", name: "JavaScript" },
-    ],
-    author: {
-      _id: "1",
-      name: "John Doe",
-      picture: "https://randomuser.me/api/portraits",
-    },
-    upVotes: 10,
-    downVotes: 2,
-    views: 100,
-    answers: [],
-    createdAt: new Date("2024-09-01T00:00:00.000Z"),
-  },
-  {
-    _id: "2",
-    title: "creating database in MongoDB",
-    tags: [
-      { _id: "1", name: "database" },
-      { _id: "2", name: "Mongodb" },
-    ],
-    author: {
-      _id: "1",
-      name: "cosmos cunningham",
-      picture: "https://randomuser.me/api/portraits",
-    },
-    upVotes: 5563,
-    downVotes: 25,
-    views: 10,
-    answers: [],
-    createdAt: new Date("2024-06-01T00:00:00.000Z"),
-  },
-  {
-    _id: "3",
-    title: "building a website using HTML and CSS",
-    tags: [
-      { _id: "1", name: "html" },
-      { _id: "2", name: "css" },
-    ],
-    author: {
-      _id: "1",
-      name: "larry richardson",
-      picture: "https://randomuser.me/api/portraits",
-    },
-    upVotes: 17,
-    downVotes: 27,
-    views: 90,
-    answers: [],
-    createdAt: new Date("2021-09-01T00:00:00.000Z"),
-  },
-];
+const Home = async () => {
+  const result = await getQuestions({});
 
-const Home = () => {
+  console.log(result.questions);
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -97,19 +44,19 @@ const Home = () => {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result?.questions?.length > 0 ? (
+          result?.questions?.map((question) => (
             <QuestionCard
-              key={question._id}
-              _id={question._id}
-              title={question.title}
-              tags={question.tags}
-              author={question.author}
-              upVotes={question.upVotes}
-              downVotes={question.downVotes}
-              views={question.views}
-              answers={question.answers}
-              createdAt={question.createdAt}
+              key={question?._id}
+              _id={question?._id}
+              title={question?.title}
+              tags={question?.tags}
+              author={question?.author}
+              upVotes={question?.upVotes}
+              downVotes={question?.downVotes}
+              views={question?.views}
+              answers={question?.answers}
+              createdAt={question?.createdAt}
             />
           ))
         ) : (
