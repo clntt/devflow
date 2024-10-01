@@ -23,11 +23,13 @@ import { QuestionSchema } from "@/lib/validations";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
 import { createQuestion } from "@/lib/actions/question.action";
-import { auth } from "@clerk/nextjs/server";
+// import { auth } from "@clerk/nextjs/server";
 import { useRouter, usePathname } from "next/navigation";
 
 interface Props {
+  type?: string;
   mongoUserId: string;
+  questionDetails?: string;
 }
 
 const Questions = ({ mongoUserId }: Props) => {

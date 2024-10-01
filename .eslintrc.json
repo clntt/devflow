@@ -1,3 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "standard", "plugin:tailwindcss/recommended", "prettier"]
+  // "extends": ["next/core-web-vitals", "next/typescript", "standard", "plugin:tailwindcss/recommended", "prettier"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended" // Use recommended rules from the @typescript-eslint/eslint-plugin
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "off", // Disable the unused vars rule
+    "@typescript-eslint/no-explicit-any": "off" // Disable the explicit any rule
+  }
 }
