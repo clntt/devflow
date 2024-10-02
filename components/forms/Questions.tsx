@@ -153,7 +153,7 @@ const Questions = ({ mongoUserId }: Props) => {
                   apiKey={tinyApiKey}
                   onInit={(_evt, editor) => {
                     // @ts-expect-ignore
-                    editorRef.current = editor;
+                    // editorRef.current = editor;
                   }}
                   onBlur={field.onBlur}
                   onEditorChange={(content) => field.onChange(content)}
