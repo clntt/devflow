@@ -22,7 +22,7 @@ const Metric = ({
   isAuthor,
 }: MetricProps) => {
   const MetricContent = () => (
-    <div>
+    <div className="flex gap-2">
       <Image
         src={imgUrl}
         alt={alt}
