@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     // Log all environment variables to check if they are loaded
     console.log("All Environment Variables:", process.env);
 
-    const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
+    const WEBHOOK_SECRET = process.env.NEXT_CLERK_WEBHOOK_SECRET;
     console.log("Webhook Secret:", WEBHOOK_SECRET);
 
     if (!WEBHOOK_SECRET) {
