@@ -17,7 +17,7 @@ const Page = async () => {
           iconPosition="left"
           imgSrc="/assets/icons/search.svg"
           placeholder="Search for amazing minds"
-          otherClasses=""
+          otherClasses="flex-1"
         />
 
         <Filter
