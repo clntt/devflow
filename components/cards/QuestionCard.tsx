@@ -9,8 +9,8 @@ interface QuestionCardProps {
   title: string;
   tags: { _id: string; name: string }[];
   author: { _id: string; name: string; picture?: string };
-  upVotes: number | string;
-  downVotes: number | string;
+  upvotes: string[];
+  downvotes?: number | string[];
   views: number | string;
   answers: Array<object>;
   createdAt: Date;
@@ -21,8 +21,8 @@ const QuestionCard = ({
   title,
   tags,
   author,
-  upVotes,
-  // downVotes,
+  upvotes,
+  // downvotes,
   views,
   answers,
   createdAt,
@@ -63,8 +63,8 @@ const QuestionCard = ({
         <Metric
           imgUrl="/assets/icons/like.svg"
           alt="Upvotes"
-          value={formatBigNumber(upVotes)}
-          title=" Votes"
+          value={formatBigNumber(upvotes?.length)}
+          title={upvotes?.length === 1 ? " Vote" : " Votes"}
           textStyles="small-medium text-dark400_light800"
         />
 

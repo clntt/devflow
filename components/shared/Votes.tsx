@@ -17,7 +17,7 @@ interface Props {
   userId: string;
   upvotes: number;
   hasupVoted: boolean;
-  downVotes: number;
+  downvotes: number;
   hasdownVoted: boolean;
   hasSaved?: boolean;
 }
@@ -28,7 +28,7 @@ const Votes = ({
   userId,
   upvotes,
   hasupVoted,
-  downVotes,
+  downvotes,
   hasdownVoted,
   hasSaved,
 }: Props) => {
@@ -137,7 +137,7 @@ const Votes = ({
 
           <div className="flex-center background-light700_dark400 min-w-[18px] rounded-sm p-1">
             <p className="subtitle-medium text-dark400_light900">
-              {formatBigNumber(downVotes)}
+              {formatBigNumber(downvotes)}
             </p>
           </div>
         </div>
