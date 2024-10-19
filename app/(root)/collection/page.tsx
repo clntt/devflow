@@ -6,8 +6,9 @@ import React from "react";
 import QuestionCard from "@/components/cards/QuestionCard";
 import { getSavedQuestions } from "@/lib/actions/user.action";
 import { auth } from "@clerk/nextjs/server";
+import { SearchParamsProps } from "@/types";
 
-const Page = async () => {
+const Page = async ({ searchParams }: SearchParamsProps) => {
   const { userId } = auth();
 
   if (!userId) {
@@ -16,6 +17,7 @@ const Page = async () => {
 
   const result = await getSavedQuestions({
     clerkId: userId,
+    searchQuery: searchParams?.q,
   });
 
   console.log(result?.questions);
