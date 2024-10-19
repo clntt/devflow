@@ -8,9 +8,12 @@ import Link from "next/link";
 import React from "react";
 import QuestionCard from "@/components/cards/QuestionCard";
 import { getQuestions } from "@/lib/actions/question.action";
+import { SearchParamsProps } from "@/types";
 
-const Home = async () => {
-  const result = await getQuestions({});
+const Home = async ({ searchParams }: SearchParamsProps) => {
+  const result = await getQuestions({
+    searchQuery: searchParams?.q,
+  });
 
   console.log(result.questions);
   return (
@@ -52,8 +55,8 @@ const Home = async () => {
               title={question?.title}
               tags={question?.tags}
               author={question?.author}
-              upVotes={question?.upVotes}
-              downVotes={question?.downVotes}
+              upvotes={question?.upVotes}
+              downvotes={question?.downVotes}
               views={question?.views}
               answers={question?.answers}
               createdAt={question?.createdAt}
